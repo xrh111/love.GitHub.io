@@ -1,33 +1,52 @@
-<!doctype html>
-<html class="no-js" lang="">
-
+<!DOCTYPE html>
+<html lang="en">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title></title>
-  <link rel="stylesheet" href="css/style.css">
-  <meta name="description" content="">
-
-  <meta property="og:title" content="">
-  <meta property="og:type" content="">
-  <meta property="og:url" content="">
-  <meta property="og:image" content="">
-  <meta property="og:image:alt" content="">
-
-  <link rel="icon" href="/favicon.ico" sizes="any">
-  <link rel="icon" href="/icon.svg" type="image/svg+xml">
-  <link rel="apple-touch-icon" href="icon.png">
-
-  <link rel="manifest" href="site.webmanifest">
-  <meta name="theme-color" content="#fafafa">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>笑脸</title>
+    <style>
+        .face {
+            width: 200px;
+            height: 200px;
+            background-color: #FFD700;
+            border-radius: 50%;
+            position: relative;
+            margin: 50px auto;
+        }
+        
+        .eye {
+            width: 30px;
+            height: 30px;
+            background-color: #000;
+            border-radius: 50%;
+            position: absolute;
+            top: 50px;
+        }
+        
+        .eye.left {
+            left: 50px;
+        }
+        
+        .eye.right {
+            right: 50px;
+        }
+        
+        .mouth {
+            width: 100px;
+            height: 50px;
+            border-bottom: 5px solid #000;
+            border-radius: 0 0 50px 50px;
+            position: absolute;
+            bottom: 40px;
+            left: 50px;
+        }
+    </style>
 </head>
-
 <body>
-
-  <!-- Add your site or application content here -->
-  <p>Hello world! This is HTML5 Boilerplate.</p>
-  <script src="js/app.js"></script>
-
+    <div class="face">
+        <div class="eye left"></div>
+        <div class="eye right"></div>
+        <div class="mouth"></div>
+    </div>
 </body>
-
 </html>
