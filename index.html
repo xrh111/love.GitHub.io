@@ -336,16 +336,28 @@
         });
 
         btnDelete.addEventListener('click', () => {
-            rejectCount++;
-            if (rejectCount >= 5) {
-                btnDelete.style.position = 'absolute';
-                btnDelete.style.left = `${Math.random() * 80}%`;
-                btnDelete.style.top = `${Math.random() * 80}%`;
-            }
-            target.happiness = Math.max(0.1, target.happiness - 0.1); // 每次点击拒绝，表情更委屈
-            btnCancel.style.transform = `scale(${1 + rejectCount * 0.1})`; // 接受按钮变大
-            updateBoi();
-        });
+    rejectCount++;
+    target.happiness = Math.max(0.1, target.happiness - 0.1); // 每次拒绝，表情更难过
+    
+    // 从第5次拒绝开始，拒绝按钮会随机移动
+    if (rejectCount >= 5) {
+        btnDelete.style.position = 'absolute';
+        btnDelete.style.left = `${Math.random() * 80}%`;
+        btnDelete.style.top = `${Math.random() * 80}%`;
+    }
+    
+    // 接受按钮逐渐变大（每次拒绝放大10%）
+    btnCancel.style.transform = `scale(${1 + rejectCount * 0.1})`;
+    
+    // 第9次拒绝时跳转到拒绝页面
+    if (rejectCount >= 9) {
+        confirmSection.classList.add('hidden');
+        rejectedSection.classList.remove('hidden');
+        target.happiness = 0.2; // 设置最终难过表情
+    }
+    
+    updateBoi(); // 更新表情
+});
 
         acceptedSection.querySelector('a').addEventListener('click', () => {
             acceptedSection.classList.add('hidden');
